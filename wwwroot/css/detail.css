@@ -1,0 +1,58 @@
+.hero-title{
+    margin: auto;
+    text-align: center;
+    color: #FF9800;
+    font-size: 32px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.avatar-box{
+    margin-bottom: 20px;
+    position: absolute;
+}
+
+.avatar-skin{
+
+    width: 70px;
+    border: #FF9800 1px solid;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin: 10px 10px 0px 10px;
+}
+
+.skin-box img{
+    width: 100%;
+    border: #FF9800 1px solid;
+}
+
+
+.skins{
+    margin-bottom: 50px;
+}
+
+.skill-image{
+    border: #FF9800 1px solid;
+    border-radius: 50%;
+    margin-right: 30px;
+    width: 100px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.skills h3{
+    margin-left: 20px;
+}
+
+.skill-content{
+    margin-right: 30px;
+}
+
+.my-container{
+    background-image: url('https://lienquan.garena.vn/asset/images/bg-down.jpg');
+    padding-top: 50px;
+}
+
+.skills{
+    padding-bottom: 50px;
+}

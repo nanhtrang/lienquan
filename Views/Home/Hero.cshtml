@@ -1,0 +1,131 @@
+@{
+    ViewData["Title"] = "Tướng";
+    var heroes = (List<HeroModel>)ViewBag.Heroes;
+    var heroTypes = (List<HeroTypeModel>)ViewBag.HeroTypes;
+}
+<div class="hero-search-box">
+    <input placeholder="Tìm kiếm tướng" type="text" id="search-hero">
+</div>
+
+<div class="hero-option">
+    <input onclick="showHideCard()" value="all" class="hero-type" checked type="radio" name="heroType" id="all"> <label for="all">Tất cả</label>
+    @{
+        foreach (var type in heroTypes)
+        {
+            <input onclick="showHideCard()" value="@type.id" class="hero-type" type="radio" name="heroType" id="@type.id"> <label for="@type.id">@type.name</label>
+        }
+    }
+</div>
+<div class="row heroes-container container-fluid">
+    @{
+        foreach (var hero in heroes)
+        {
+            <div class="col-sm-2  hero-card type-@hero.type card-hero-@hero.id">
+                <a asp-controller="Home" asp-action="HeroDetail" asp-route-id="@hero.id" >
+                    <img class="hero-avatar" src="@hero.avatar" alt="">
+                    <div class="hero-name"> @hero.name </div>
+                </a>
+            </div>
+        }
+    }
+</div>
+
+<script>
+    var listShow = new Array();
+    var card1 = document.getElementsByClassName('hero-card');
+    listShow = new Array();
+    for(let item of card1){
+        item.hidden = false;
+        listShow.push(item);
+    }
+    function hide() {
+        var card = document.getElementsByClassName('hero-card');
+        for(let item of card){
+            item.hidden = true;
+        }
+    }
+
+    function show(className) {
+        var list = document.getElementsByClassName(className);
+        listShow = new Array();
+        for(let item of list){
+            item.hidden = false;
+            listShow.push(item);
+        }
+    }
+
+    function showAll() {
+        var card = document.getElementsByClassName('hero-card');
+        listShow = new Array();
+        for(let item of card){
+            item.hidden = false;
+            listShow.push(item);
+        }
+    }
+
+    function showHideCard() {
+        hide();
+        var type = document.getElementsByName('heroType');
+        var value = '';
+        type.forEach(item => {
+            if (item.checked) {
+                value = item.value;
+            }
+        });
+        
+        switch (value) {
+            case '1':
+                show('type-1');
+                break;
+            case '2':
+                show('type-2');
+                break;
+            case '3':
+                show('type-3');
+                break;
+            case '4':
+                show('type-4');
+                break;
+            case '5':
+                show('type-5');
+                break;
+            case '6':
+                show('type-6');
+                break;
+            default:
+                showAll();
+                break;
+        }
+    }
+
+    var searchInput = document.getElementById('search-hero');
+    searchInput.addEventListener('input',search)
+
+    function search(e) {
+        var keyword = e.target.value;
+        for(item of listShow){
+            item.hidden = false;
+            if (!xoa_dau(item.innerText.toLowerCase()).includes(xoa_dau(keyword.toLowerCase()))){
+                item.hidden = true;
+            }
+        }
+    }
+
+    function xoa_dau(str) {
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
+    str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+    str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+    str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+    str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
+    str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+    str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+    str = str.replace(/Đ/g, "D");
+    return str;
+}
+</script>

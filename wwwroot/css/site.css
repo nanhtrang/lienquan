@@ -1,0 +1,208 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  background-color: #212121;
+  color: white;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+.img-18{
+  top: 80px;
+  left: 10px;
+  position: fixed;
+}
+.div-config{
+  text-align: center;
+  padding-bottom: 30px;
+  background-image: url('https://lienquan.garena.vn/asset/images/bg-down.jpg');
+  padding-top: 30px;
+}
+.tbl{
+  margin: auto;
+  width: 75%;
+}
+.tbl td{
+  border: 1px #FF9800 solid;
+  background-color: #212121;
+}
+
+.td-content{
+  text-align: left;
+  width: 15%;
+}
+
+.td-logo{
+  width: 2%;
+}
+
+.note{
+  width: 75%;
+  margin: auto;
+}
+.title{
+  text-transform: uppercase;
+  font-size: 32px;
+  color: #FF9800;
+}
+
+.ranks{
+  margin: auto;
+}
+
+.rank{
+  border:1px solid #FF9800;
+  margin: 10px;
+}
+.rank-image{
+}
+.rank-name{
+  border-top: 1px #FF9800 solid;
+  margin: 0px 30px;
+  padding: 10px 0px;
+}
+/* .slidershow{
+  overflow: hidden;
+}
+.middle{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.navigation{
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.bar{
+  width: 50px;
+  height: 10px;
+  border: 2px solid #fff;
+  margin: 6px;
+  cursor: pointer;
+} */
+
+.img-slider{
+  width: 69%;
+  border: #FF9800 1px solid;
+}
+.td-logo img{
+  border: #FF9800 1px solid;
+}
+.hero-option{
+  padding: 40px 0px;
+  margin: auto;
+  width: 80%;
+  text-align: center;
+}
+
+.hero-option label{
+  margin-right: 30px;
+  margin-left: 5px;
+}
+
+.heroes-container{
+  width: 90%;
+  margin: auto;
+  max-width: 2000px;
+  min-width: 600px;
+}
+
+.hero-avatar{
+  width: 120px;
+  border: #FF9800 1px solid;
+  margin-bottom: 10px;
+}
+
+.hero-card{
+  text-align: center  ;
+  margin-bottom: 50px;
+}
+
+.hero-search-box{
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  margin-top: 50px;
+}
+.hero-search-box input{
+  width: 80%;
+  border: #FF9800 1px solid;
+  font-size: 24px;
+  background-color: transparent;
+  color: #FF9800;
+  padding: 3px 6px;
+  border-radius: 3px;
+}
+
+.hero-search-box input:active{
+  border: #FF9800 1px solid;
+}

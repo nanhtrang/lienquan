@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="~/css/detail.css" />
+@{
+    HeroModel hero = (HeroModel) ViewBag.Hero;
+    HeroSkinModel heroSkin = (HeroSkinModel) ViewBag.HeroSkin;
+    List<SkillModel> skills = (List<SkillModel>) ViewBag.HeroSkill;
+    ViewData["Title"] = hero.name;
+}
+
+
+<div class="container">
+    <div class="my-container">
+    <div class="hero-title">
+        @hero.name
+    </div>
+    <div class="skins">
+        <div class="avatar-box">
+            @{
+                int count = 0;
+                foreach (var skin in heroSkin.listSkin)
+                {
+                    count++;
+                    <img onclick="clickAvatar(this.className)" id="avatar-@count" class="avatar-skin avatar-@count" src="@skin.avatar" alt="">
+                    <br>
+                }
+            }
+        </div>
+        <div class="skin-box">
+            @{
+                int count1 = 0;
+                foreach (var skin in heroSkin.listSkin)
+                {
+                    count1++;
+                    <img class="image-skin skin-@count1" src="@skin.image" alt="">
+                }
+            }
+        </div>
+    </div>
+
+    
+    <div class="skills"><h3>Kỹ năng</h3>
+        <table>
+            @{
+                foreach (var skill in skills)
+                {
+                    <tr>
+                        <td>
+                            <img class="skill-image" src="@skill.image" alt="">
+                        </td>
+                        <td>
+                            <div class="skill-name">@skill.name</div>
+                            <div class="skill-content">@skill.content</div>
+                        </td>
+                    </tr>
+                }
+            }
+            
+        </table>
+    </div>
+    </div>
+
+    <script>
+
+    function hideAllSkin() {
+        var skins = document.getElementsByClassName('image-skin');
+        for (let skin of skins) {
+            skin.hidden = true;
+        }
+    }
+    function showSkin(className) {
+        var skins = document.getElementsByClassName(className);
+        debugger;
+        for (let skin of skins) {
+            skin.hidden = false;
+        }
+    }
+    function onLoad() {
+        debugger;
+        hideAllSkin();
+        var skin1 = document.getElementsByClassName('skin-1');
+        skin1[0].hidden = false;
+    }
+
+    function clickAvatar(className) {
+        var skinId = className.replace('avatar-skin avatar', 'skin');
+        hideAllSkin();
+        showSkin(skinId);
+    }
+    onLoad();
+
+</script>
+</div>

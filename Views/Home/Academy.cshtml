@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Học viện";
+    var ranks = (List<RankModel>) ViewBag.Ranks;
+}
+
+<div class="div-config">
+    <div class="slidershow middle">
+        <div class="sliders">
+            <img class="img-slider" id="i1" src="https://lienquan.garena.vn/kg/images/img-banner.jpg" alt="">
+            <img class="img-slider" id="i2" src="https://lienquan.garena.vn/kg/images/img-banner-1.jpg" alt="">
+            <img class="img-slider" id="i3" src="https://lienquan.garena.vn/kg/images/img-banner-2.jpg" alt="">
+            <img class="img-slider" id="i4" src="https://lienquan.garena.vn/kg/images/img-banner-3.jpg" alt="">
+        </div>
+    </div>
+</div>
+
+
+<div class="div-config">
+    <div class="title">CẠNH TRANH ĐẤU HẠNG - THÁCH THỨC ĐỈNH CAO</div>
+    <div class="row w-75 container-fluid text-light ranks">
+        @{
+            foreach (var rank in ranks)
+            {
+                <div class="col-sm-4">
+                    <div class="rank">
+                         <img src="@rank.image" alt="">
+                        <div class="rank-name">@rank.name</div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<script>
+        var i1 = document.getElementById("i1");
+        var i2 = document.getElementById("i2");
+        var i3 = document.getElementById("i3");
+        var i4 = document.getElementById("i4");
+        hiddenAll();
+        i1.hidden = false;
+        setInterval(() => {
+            if (!i1.hidden) {
+                show(i2);
+            }else if (!i2.hidden) {
+                show(i3);
+            }else if(!i3.hidden){
+                show(i4);
+            }else if(!i4.hidden){
+                show(i1);
+            }
+        }, 3000);
+
+        function show(item) {
+            hiddenAll();
+            debugger;
+            item.hidden = false;
+        }
+
+        function hiddenAll() {
+            i1.hidden = true;
+            i2.hidden = true;
+            i3.hidden = true;
+            i4.hidden = true;
+        }
+    </script>
